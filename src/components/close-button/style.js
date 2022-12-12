@@ -16,10 +16,9 @@ export const CloseButton = styled.button`
 `;
 
 export const StyledCloseIcon = styled(CloseIcon)`
-  height: 100px;
-  width: 100px;
+  /* stroke: red; */
 
-  &.path {
-    fill: red;
+  &:hover {
+    stroke: red;
   }
 `;

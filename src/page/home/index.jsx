@@ -1,5 +1,5 @@
-import Button from '../../components/button/';
+import CloseButton from '../../components/close-button/';
 
 export default function Home() {
-  return <Button>teste</Button>;
+  return <CloseButton></CloseButton>;
 }
