@@ -1,5 +1,5 @@
-import CloseButton from '../../components/close-button/';
+import Input from '../../components/input/';
 
 export default function Home() {
-  return <CloseButton></CloseButton>;
+  return <Input></Input>;
 }
