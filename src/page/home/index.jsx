@@ -1,5 +1,5 @@
-import CloseButton from '../../components/close-button/';
+import CheckBox from '../../components/check-box/';
 
 export default function Home() {
-  return <CloseButton></CloseButton>;
+  return <CheckBox></CheckBox>;
 }

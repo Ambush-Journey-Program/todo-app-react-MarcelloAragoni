@@ -1,5 +1,6 @@
-import * as S from './style';
+import PropTypes from 'prop-types';
 
+import * as S from './style';
 import closeIcon from '../../assets/icon-cross.svg';
 
 export default function CloseButton({ type = 'button' }) {
@@ -10,3 +11,7 @@ export default function CloseButton({ type = 'button' }) {
     </S.CloseButton>
   );
 }
+
+CloseButton.propTypes = {
+  type: PropTypes.string
+};

@@ -19,6 +19,6 @@ export const StyledCloseIcon = styled(CloseIcon)`
   /* stroke: red; */
 
   &:hover {
-    stroke: red;
+    stroke: #d8d8d8;
   }
 `;
