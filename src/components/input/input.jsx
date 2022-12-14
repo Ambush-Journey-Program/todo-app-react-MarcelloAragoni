@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 import * as S from './style';
 
-export default function Input({ placeholder }) {
-  return <S.Input placeholder={placeholder} />;
+export default function Input(props) {
+  return <S.Input {...props} />;
 }
 
 Input.propTypes = {
