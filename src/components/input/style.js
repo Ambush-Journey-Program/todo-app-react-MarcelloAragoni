@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import '../../root.scss';
-
 export const Input = styled.input`
   height: 45px;
   width: 300px;
