@@ -16,7 +16,7 @@ export const CloseButton = styled.button`
 `;
 
 export const StyledCloseIcon = styled(CloseIcon)`
-  /* stroke: red; */
+  stroke: #d8d8d8;
 
   &:hover {
     stroke: #d8d8d8;
