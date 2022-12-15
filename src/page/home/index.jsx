@@ -1,5 +1,5 @@
-import Input from '../../components/input/';
+import CheckBox from '../../components/check-box/';
 
 export default function Home() {
-  return <Input />;
+  return <CheckBox></CheckBox>;
 }
