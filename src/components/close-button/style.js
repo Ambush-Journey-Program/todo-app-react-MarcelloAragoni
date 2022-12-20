@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as CloseIcon } from '../../assets/icon-cross.svg';
 
 export const CloseButton = styled.button`
-  height: 30px;
+  height: 20px;
   width: 40px;
   padding: 0 20px;
   font-weight: bold;

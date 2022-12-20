@@ -27,13 +27,3 @@ export const Item = styled.p`
   align-self: center;
   margin-left: 1.25rem;
 `;
-
-export const FiltterBar = styled.div`
-  display: grid;
-  grid-template-columns: 4fr 6fr 4fr;
-  padding: 0px 15px 0px 15px;
-  color: white;
-  line-height: 2.5rem;
-  height: 50px;
-  justify-items: center;
-`;

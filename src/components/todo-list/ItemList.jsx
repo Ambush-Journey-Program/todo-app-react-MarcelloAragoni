@@ -2,12 +2,11 @@ import CloseButton from '../close-button/CloseButton';
 import Checkbox from '../check-box/CheckBox';
 import * as S from './style';
 
-export default function TodoItem({ items }) {
-  console.log({ items });
+export default function TodoItem({ item }) {
   return (
     <S.ItemList>
       <Checkbox />
-      <S.Item>{items}</S.Item>
+      <S.Item>{item}</S.Item>
       <CloseButton />
     </S.ItemList>
   );
