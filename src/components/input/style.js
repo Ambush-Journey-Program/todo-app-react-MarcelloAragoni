@@ -7,6 +7,6 @@ export const Input = styled.input`
   outline: none;
   border: none;
   border-radius: 5px;
-  background-color: #25273d;
+  background-color: hsl(240, 5%, 18%);
   color: #c8cbe7;
 `;

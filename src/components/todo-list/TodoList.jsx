@@ -1,25 +1,23 @@
+import { FILTERS_VALUES } from '../../utilities/consts';
 import TodoItem from './ItemList';
 import * as S from './style';
 
-export default function TodoList({ isFilled = false, ItemList }) {
-  if (!isFilled) {
+export default function TodoList({ itemList, filter = '' }) {
+  if (!itemList || itemList.length === 0) {
     return null;
   }
 
+  const shouldShowCompleteList = !filter || filter === FILTERS_VALUES.ALL;
+
+  const filteredList = shouldShowCompleteList
+    ? itemList
+    : itemList.filter((item) => item.status === filter);
+
   return (
     <S.TodoList>
-      {ItemList.map((item) => (
-        <TodoItem key={item.id} items={item.text} />
+      {filteredList.map((item) => (
+        <TodoItem key={item.id} item={item.text} />
       ))}
-      <S.FiltterBar>
-        <span>Tasks ToDo {ItemList.length}</span>
-        <div>
-          <button>All</button>
-          <button>Active</button>
-          <button>Complete</button>
-        </div>
-        <button>Clear Complete</button>
-      </S.FiltterBar>
     </S.TodoList>
   );
 }
