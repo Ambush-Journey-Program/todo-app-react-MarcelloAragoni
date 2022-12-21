@@ -1,3 +1,4 @@
+import { FILTERS_VALUES } from '../../utilities/consts';
 import TodoItem from './ItemList';
 import * as S from './style';
 
@@ -6,7 +7,7 @@ export default function TodoList({ itemList, filter = '' }) {
     return null;
   }
 
-  const shouldShowCompleteList = !filter || filter === 'all';
+  const shouldShowCompleteList = !filter || filter === FILTERS_VALUES.ALL;
 
   const filteredList = shouldShowCompleteList
     ? itemList

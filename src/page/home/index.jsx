@@ -1,22 +1,21 @@
 import { useState } from 'react';
 
+import { FILTERS_VALUES } from '../../utilities/consts';
 import TodoList from '../../components/todo-list/';
 import Input from '../../components/input/';
 import FilterButton from '../../components/filter-button/';
 import * as S from './style';
 
-const FILTERS = { ALL: 'all', ACTIVE: 'active', COMPLETE: 'complete' };
-
 const FILTERS_TABS = [
-  { name: 'All', value: FILTERS.ALL },
-  { name: 'Active', value: FILTERS.ACTIVE },
-  { name: 'Complete', value: FILTERS.COMPLETE }
+  { name: 'All', value: FILTERS_VALUES.ALL },
+  { name: 'Active', value: FILTERS_VALUES.ACTIVE },
+  { name: 'Complete', value: FILTERS_VALUES.COMPLETE }
 ];
 
 export default function Home() {
   const [todoList, setTodoList] = useState([]);
   const [inputValue, setInputValue] = useState('');
-  const [activeFilter, setActiveFilter] = useState(FILTERS.ALL);
+  const [activeFilter, setActiveFilter] = useState(FILTERS_VALUES.ALL);
 
   function handleList(itemList) {
     setTodoList([...todoList, itemList]);
@@ -25,7 +24,7 @@ export default function Home() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const itemList = { id: `${todoList.length}`, text: inputValue, status: FILTERS.ACTIVE };
+    const itemList = { id: `${todoList.length}`, text: inputValue, status: FILTERS_VALUES.ACTIVE };
 
     handleList(itemList);
   }
