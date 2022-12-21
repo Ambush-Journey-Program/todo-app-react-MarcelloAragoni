@@ -52,7 +52,7 @@ export default function Home() {
             </FilterButton>
           ))}
         </div>
-        <FilterButton onClick={() => handleClickFilterButton('all')} type="button">
+        <FilterButton onClick={() => handleClickFilterButton(FILTERS_VALUES.ALL)} type="button">
           Clear Complete
         </FilterButton>
       </S.FilterBar>
