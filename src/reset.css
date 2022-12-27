@@ -5,6 +5,8 @@
 html {
   background-image: url('./assets/bg-desktop-light.jpg');
   background-repeat-y: no-repeat;
+  background-size: cover;
+  height: 300px;
 }
 
 html,
