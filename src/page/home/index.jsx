@@ -17,16 +17,20 @@ export default function Home() {
   const [inputValue, setInputValue] = useState('');
   const [activeFilter, setActiveFilter] = useState(FILTERS_VALUES.ALL);
 
-  function handleList(itemList) {
-    setTodoList([...todoList, itemList]);
+  function handleList(listItem) {
+    setTodoList([...todoList, listItem]);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const itemList = { id: `${todoList.length}`, text: inputValue, status: FILTERS_VALUES.ACTIVE };
+    const listItem = {
+      id: `${Math.floor(Date.now() * Math.random()).toString(36)}`,
+      text: inputValue,
+      status: FILTERS_VALUES.ACTIVE
+    };
 
-    handleList(itemList);
+    handleList(listItem);
   }
 
   function handleClickFilterButton(filterName) {
@@ -38,7 +42,7 @@ export default function Home() {
       <S.Form onSubmit={handleSubmit}>
         <Input onChange={setInputValue} value={inputValue} />
       </S.Form>
-      <TodoList itemList={todoList} filter={activeFilter} />
+      <TodoList listItem={todoList} filter={activeFilter} handleUpdateList={setTodoList} />
       <S.FilterBar>
         <span>Tasks ToDo {todoList.length}</span>
         <div>
