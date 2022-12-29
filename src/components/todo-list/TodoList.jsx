@@ -8,16 +8,6 @@ export default function TodoList({ listItem, filter = '', handleUpdateList }) {
   }
 
   function changeStatus(id, newStatus) {
-    // const itensUpdated = listItem.map((item) => {
-    //   if (item.id === id) {
-    //     return {
-    //       ...item,
-    //       status: newStatus
-    //     };
-    //   }
-    //   return item;
-    // });
-
     const itensUpdated = listItem.map((item) =>
       item.id === id ? { ...item, status: newStatus } : item
     );
@@ -31,12 +21,23 @@ export default function TodoList({ listItem, filter = '', handleUpdateList }) {
     ? !listItem || listItem
     : (!listItem || listItem).filter((item) => item.status === filter);
 
+  function handleDeleteItem(id) {
+    const listItemUpdated = listItem.filter((item) => item.id !== id);
+
+    // listItem.splice(
+    //   listItem.findIndex((item) => item.id === id),
+    //   1
+    // );
+    handleUpdateList(listItemUpdated);
+  }
+
   return (
     <S.TodoList>
       {filteredList.map((item) => (
         <TodoItem
           key={item.id}
           updateStatus={changeStatus}
+          onDelete={handleDeleteItem}
           id={item.id}
           item={item.text}
           status={item.status}

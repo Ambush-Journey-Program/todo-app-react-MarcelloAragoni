@@ -3,7 +3,7 @@ import CloseButton from '../close-button/CloseButton';
 import Checkbox from '../check-box/CheckBox';
 import * as S from './style';
 
-export default function TodoItem({ updateStatus, id, status, item }) {
+export default function TodoItem({ onDelete, updateStatus, id, status, item }) {
   function handleChangeStatus() {
     const newStatus =
       status === FILTERS_VALUES.ACTIVE ? FILTERS_VALUES.COMPLETE : FILTERS_VALUES.ACTIVE;
@@ -18,11 +18,15 @@ export default function TodoItem({ updateStatus, id, status, item }) {
 
   const isChecked = status === FILTERS_VALUES.COMPLETE;
 
+  function handleDeleteItem() {
+    onDelete(id);
+  }
+
   return (
     <S.ItemList>
       <Checkbox onChange={handleChangeStatus} isChecked={isChecked} />
       <S.Item>{item}</S.Item>
-      <CloseButton />
+      <CloseButton onClick={handleDeleteItem} />
     </S.ItemList>
   );
 }

@@ -37,6 +37,13 @@ export default function Home() {
     setActiveFilter(filterName);
   }
 
+  function handleClearCompleteButton(filterName) {
+    const listItemUpdated = todoList.filter((item) => item.status !== FILTERS_VALUES.COMPLETE);
+
+    setTodoList(listItemUpdated);
+    setActiveFilter(filterName);
+  }
+
   return (
     <S.TodoBox>
       <S.Form onSubmit={handleSubmit}>
@@ -56,7 +63,7 @@ export default function Home() {
             </FilterButton>
           ))}
         </div>
-        <FilterButton onClick={() => handleClickFilterButton(FILTERS_VALUES.ALL)} type="button">
+        <FilterButton onClick={() => handleClearCompleteButton(FILTERS_VALUES.ALL)} type="button">
           Clear Complete
         </FilterButton>
       </S.FilterBar>
