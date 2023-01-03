@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { FILTERS_VALUES } from '../../utilities/consts';
+import { FILTERS_VALUES, LOCAL_STORAGE_TODOLIST_KEY } from '../../utilities/consts';
 import TodoList from '../../components/todo-list/';
 import Input from '../../components/input/';
 import FilterButton from '../../components/filter-button/';
 import * as S from './style';
+import { getLocalStorage, setLocalStorage } from '../../utilities/localStorageHelper';
 
 const FILTERS_TABS = [
   { name: 'All', value: FILTERS_VALUES.ALL },
@@ -16,6 +17,21 @@ export default function Home() {
   const [todoList, setTodoList] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [activeFilter, setActiveFilter] = useState(FILTERS_VALUES.ALL);
+
+  useEffect(() => {
+    const listItem = JSON.parse(getLocalStorage(LOCAL_STORAGE_TODOLIST_KEY));
+    console.log(listItem);
+    if (listItem) {
+      setTodoList(listItem);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!todoList || todoList.length === 0) {
+      return;
+    }
+    setLocalStorage(LOCAL_STORAGE_TODOLIST_KEY, JSON.stringify(todoList));
+  }, [todoList]);
 
   function handleList(listItem) {
     setTodoList([...todoList, listItem]);
